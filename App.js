@@ -63,7 +63,7 @@ const ExploreScreen = () => {
           const { coordinate } = state.markers[index];
           _map.current.animateToRegion(
             {
-              // AIzaSyB8akFU0UZNcohuUi3vt0I75E1lS3Y-sOg
+              
               ...coordinate,
               latitudeDelta: state.region.latitudeDelta,
               longitudeDelta: state.region.longitudeDelta,
