@@ -153,7 +153,7 @@ const ExploreScreen = () => {
           textInput: styles.textInput,
         }}
         query={{
-          key: 'AIzaSyCJP5zV4FJ7Kbg7k2aH76_xOsUIqcONIcw',
+          key: 'PASTE YOUR KEY HERE',
           language: 'en',
           types: '(cities)',
         }}
