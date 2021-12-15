@@ -12,14 +12,14 @@ import {
   Platform,
 } from "react-native";
 import MapView, {PROVIDER_GOOGLE} from "react-native-maps";
-
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
 import { markers, mapDarkStyle, mapStandardStyle } from './model/mapData';
 
-//  import { useTheme } from '@react-navigation/native';
+  import { useTheme } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = 220;
@@ -27,7 +27,7 @@ const CARD_WIDTH = width * 0.8;
 const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
 
 const ExploreScreen = () => {
-  //  const theme = useTheme();
+    const theme = useTheme();
 
   const initialMapState = {
     markers,
@@ -136,13 +136,38 @@ const ExploreScreen = () => {
         })}
       </MapView>
       <View style={styles.searchBox}>
-        <TextInput 
+      <GooglePlacesAutocomplete
+         placeholder="Search here"
+         placeholderTextColor="#000"
+         autoCapitalize="none"
+         
+         style={{flex:1,padding:0}}
+      
+        onPress={(data, details = null) => {
+        fetchDetails = true
+          console.log(data, details);
+          // navigation.navigate({ viewport: details.geometry.viewport });
+        }}
+        fetchDetails
+        styles={{
+          textInput: styles.textInput,
+        }}
+        query={{
+          key: 'AIzaSyCJP5zV4FJ7Kbg7k2aH76_xOsUIqcONIcw',
+          language: 'en',
+          types: '(cities)',
+        }}
+        
+        // suppressDefaultStyles
+        // renderRow={(item) => <SuggestionRow item={item} />}
+      />
+        {/* <TextInput 
           placeholder="Search here"
           placeholderTextColor="#000"
           autoCapitalize="none"
           style={{flex:1,padding:0}}
-        />
-        <Ionicons name="ios-search" size={20} />
+        /> */}
+        
       </View>
       <ScrollView
         horizontal
@@ -305,7 +330,7 @@ const styles = StyleSheet.create({
   },
   cardtitle: {
     fontSize: 12,
-     marginTop: 5,
+    //  marginTop: 5,
     fontWeight: "bold",
   },
   cardDescription: {

@@ -1,3 +1,11 @@
+const Images = [
+  { image: require("../assests/station1.jpg") },
+  { image: require("../assests/station2.jpg") },
+  { image: require("../assests/station3.jpg") },
+  { image: require("../assests/station4.jpg") },
+  { image: require("../assests/station5.jpg") },
+];
+
 export const markers = [
     {
       coordinate: {
@@ -6,7 +14,7 @@ export const markers = [
       },
       title: "Charger place",
       description: "Bike charger",
-      
+      image: Images[0].image,
     },
     {
       coordinate: {
@@ -15,7 +23,7 @@ export const markers = [
       },
       title: "Charger place ",
       description: "AC-DC Charger",
-      
+      image: Images[1].image,
     },
     {
       coordinate: {
@@ -24,7 +32,7 @@ export const markers = [
       },
       title: "Charger place",
       description: "AC charger",
-      
+      image: Images[2].image,
     },
     {
       coordinate: {
@@ -33,7 +41,7 @@ export const markers = [
       },
       title: "Charger place",
       description: "DC charger",
-      
+      image: Images[3].image,
     },
     {
       coordinate: {
@@ -42,6 +50,6 @@ export const markers = [
       },
       title: "Charger place",
       description: "AC001 charger",
-     
+      image: Images[4].image,
     },
 ];
